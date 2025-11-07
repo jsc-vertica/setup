@@ -193,6 +193,10 @@ EOF
 chmod +x ~/.local/share/applications/outlook-web.desktop
 print_green "----- install Chromium for Microsoft Teams and Outlook end -----"
 
+print_green "----- install libreoffice start -----"
+sudo apt install -y libreoffice
+print_green "----- install libreoffice end -----"
+
 fi
 
 print_green "SETUP COMPLETED."
