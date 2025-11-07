@@ -144,6 +144,10 @@ print_green "----- install lsd start -----"
 sudo apt install -y lsd
 print_green "----- install lsd end -----"
 
+print_green "----- install waybar start -----"
+sudo apt install -y waybar
+print_green "----- install waybar end -----"
+
 print_green "----- install terraform start -----"
 TERRAFORM_VERSION="1.9.5"
 
