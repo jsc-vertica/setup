@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$UBUNTU_RELEASE_VERSION = '24.04'
+UBUNTU_RELEASE_VERSION='24.04'
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -145,6 +145,26 @@ print_green "----- install lsd start -----"
 sudo apt install -y lsd
 print_green "----- install lsd end -----"
 
+print_green "----- install terraform start -----"
+TERRAFORM_VERSION="1.9.5"
+
+if command -v terraform &> /dev/null; then
+    INSTALLED_VERSION=$(terraform version -json 2>/dev/null | grep -o '"version":"v\?[^"]*' | cut -d'"' -f4 | sed 's/^v//')
+    echo "Terraform $INSTALLED_VERSION is already installed."
+else
+    echo "Installing Terraform $TERRAFORM_VERSION..."
+    wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+    unzip -q terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+    sudo mv terraform /usr/local/bin/
+    rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+    echo "Terraform $TERRAFORM_VERSION installed."
+fi
+print_green "----- install terraform end -----"
+
 fi
 
+print_green "SETUP COMPLETED."
+
+# TODO
+# mako for notifications
 
