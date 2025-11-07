@@ -110,7 +110,6 @@ sudo apt install alacritty
 
 print_green "----- install alacritty terminal emulator end -----"
 
-
 print_green "----- install docker start -----"
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -161,10 +160,44 @@ else
 fi
 print_green "----- install terraform end -----"
 
+print_green "----- install Chromium for Microsoft Teams and Outlook start -----"
+
+sudo apt install -y chromium-browser
+
+cat > ~/.local/share/applications/teams-web.desktop << 'EOF'
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Microsoft Teams
+Comment=Open Teams in Chromium app mode
+Exec=chromium-browser --app="https://teams.microsoft.com"
+Icon=teams
+Terminal=false
+Categories=Network;Chat;VideoConference;
+StartupWMClass=teams.microsoft.com
+EOF
+chmod +x ~/.local/share/applications/teams-web.desktop
+
+cat > ~/.local/share/applications/outlook-web.desktop << 'EOF'
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Outlook Web App
+Comment=Open Outlook in Chromium app mode
+Exec=chromium-browser --app="https://outlook.office.com"
+Icon=mail-client
+Terminal=false
+Categories=Network;Email;
+StartupWMClass=outlook.office.com
+EOF
+chmod +x ~/.local/share/applications/outlook-web.desktop
+print_green "----- install Chromium for Microsoft Teams and Outlook end -----"
+
 fi
 
 print_green "SETUP COMPLETED."
 
 # TODO
 # mako for notifications
+
 
