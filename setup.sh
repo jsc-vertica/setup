@@ -201,6 +201,10 @@ print_green "----- install libreoffice start -----"
 sudo apt install -y libreoffice
 print_green "----- install libreoffice end -----"
 
+print_green "----- install btop start -----"
+sudo apt install -y btop
+print_green "----- install btop end -----"
+
 fi
 
 print_green "SETUP COMPLETED."
