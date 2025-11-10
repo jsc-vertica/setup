@@ -205,7 +205,12 @@ print_green "----- install btop start -----"
 sudo apt install -y btop
 print_green "----- install btop end -----"
 
+print_green "----- install flameshot start -----"
+sudo apt install -y flameshot
+print_green "----- install flameshot end -----"
+
 fi
+
 
 print_green "SETUP COMPLETED."
 
