@@ -6,22 +6,16 @@
 set -e
 
 # --- CONFIGURATION ---
-RIDER_URL="https://download.jetbrains.com/rider/JetBrains.Rider-2025.2.3.tar.gz"
+RIDER_URL="https://download.jetbrains.com/rider/JetBrains.Rider-2025.3.0.1.tar.gz"
 INSTALL_DIR="/opt/rider"
 DESKTOP_FILE="/usr/share/applications/jetbrains-rider.desktop"
 
 echo "🚀 Installing JetBrains Rider..."
-
-# --- 1. Install dependencies ---
-echo "📦 Installing required tools..."
 sudo apt update -qq
-sudo apt install -y curl tar
 
-# --- 2. Download Rider ---
 echo "⬇️ Downloading Rider from JetBrains..."
 curl -L "$RIDER_URL" -o /tmp/Rider.tar.gz
 
-# --- 3. Extract and move to /opt ---
 echo "📂 Extracting package..."
 tar -xzf /tmp/Rider.tar.gz -C /tmp
 
@@ -32,13 +26,12 @@ echo "📁 Moving Rider to $INSTALL_DIR ..."
 sudo rm -rf "$INSTALL_DIR"
 sudo mv "$RIDER_DIR" "$INSTALL_DIR"
 
-# --- 4. Create desktop shortcut ---
 echo "🖥️ Creating desktop shortcut..."
 sudo tee "$DESKTOP_FILE" > /dev/null <<EOF
 [Desktop Entry]
 Name=JetBrains Rider
 Comment=Cross-platform .NET IDE
-Exec=$INSTALL_DIR/bin/rider.sh
+Exec=$INSTALL_DIR/bin/rider
 Icon=$INSTALL_DIR/bin/rider.svg
 Terminal=false
 Type=Application

@@ -33,7 +33,7 @@ print_green "----- install 1password end -----"
 
 print_green "----- install rider start -----"
 
-sudo bash /home/jsc/install-rider.sh
+sudo bash /home/jsc/setup/install-rider.sh
 
 print_green "----- install rider end -----"
 
