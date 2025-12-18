@@ -6,7 +6,7 @@
 set -e
 
 # --- CONFIGURATION ---
-RIDER_URL="https://download.jetbrains.com/rider/JetBrains.Rider-2025.3.0.1.tar.gz"
+RIDER_URL="https://download.jetbrains.com/rider/JetBrains.Rider-2025.3.0.4.tar.gz"
 INSTALL_DIR="/opt/rider"
 DESKTOP_FILE="/usr/share/applications/jetbrains-rider.desktop"
 
